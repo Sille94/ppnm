@@ -1,5 +1,9 @@
-Out.txt : main.exe
-	mono main.exe > Out.txt
+Out.txt : hello.exe
+	mono hello.exe > Out.txt
 
-main.exe : main.cs
-	mcs main.cs
+hello.exe : hello.cs
+	mcs hello.cs
+
+clean:
+	rm -f Out.txt hello.exe
+
