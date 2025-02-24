@@ -3,7 +3,7 @@ using static System.Math;
 using System;
 
 public static class main{//Command line argument in the form -numbers:1,2,3,4,5
-	public static void Main(string[] args){//args = ["-numbers:1,2,3,4,5"]
+	public static int Main(string[] args){//args = ["-numbers:1,2,3,4,5"]
 		WriteLine("x |  sin(x) |  cos(x)");
 		foreach(var arg in args){//arg = "-numbers:1,2,3,4,5"
 			var words = arg.Split(':');//arg.split(':') => words=["-numbers","1,2,3,4,5"]

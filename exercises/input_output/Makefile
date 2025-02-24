@@ -1,5 +1,5 @@
 Out.txt: main.exe
-	mono main.exe -input:input.txt -output:Out.txt
+	echo 1 2 3 4 5 | mono main.exe 2> Out.txt
 main.exe: main.cs
 	mcs -target:exe -out:main.exe main.cs
 

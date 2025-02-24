@@ -1,0 +1,7 @@
+1
+2
+3
+5
+
+List size before 1
+List size after 0
