@@ -1,0 +1,4 @@
+set terminal svg background "white"
+set output "fig.svg"
+set datafile separator ","
+plot "Out.txt" using 1:2 with lines  
