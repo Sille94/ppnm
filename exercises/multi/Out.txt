@@ -1,3 +1,24 @@
-real 0.20
-user 0.01
+harmonic sum =18.9978964138526 with 1 threads
+real 0.43
+user 0.31
+sys 0.01
+harmonic sum =18.997896413853 with 2 threads
+real 0.29
+user 0.32
 sys 0.02
+harmonic sum =18.9978964138495 with 3 threads
+real 0.45
+user 0.72
+sys 0.03
+harmonic sum =18.9978964138499 with 4 threads
+real 0.39
+user 0.75
+sys 0.01
+harmonic sum pitfalls task1 = 14.9732202933901
+real 0.81
+user 2.67
+sys 0.02
+harmonic sum pitfalls task2 = 16.0774862312281
+real 0.88
+user 3.04
+sys 0.01

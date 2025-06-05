@@ -14,7 +14,7 @@ public class main{
 		foreach(var arg in args){
 			var words = arg.Split(':');
 			if(words[0]=="-threads") nthreads = int.Parse(words[1]);
-			if(words[0]=="-terms") nterms = int.Parse(words[1]);
+			if(words[0]=="-terms") nterms = (int)double.Parse(words[1]);
 		}
 		data[] param =  new data[nthreads];
 		for(int i=0; i<nthreads; i++){
@@ -30,5 +30,6 @@ public class main{
 		}
 		foreach(var thread in threads) thread.Join();
 		double total=0; foreach(var p in param) total+=p.sum;
+		WriteLine($"harmonic sum ={total} with {nthreads} threads");
 	}	
 }
