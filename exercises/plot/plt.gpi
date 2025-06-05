@@ -1,4 +1,23 @@
-set terminal svg background "white"
+set terminal svg background "white" size 500,1000
 set output "fig.svg"
+set multiplot layout 3,1
 set datafile separator ","
-plot "Out.txt" using 1:2 with lines  
+set key top right
+
+set title "Error Function"
+set xlabel "x"
+set ylabel "errfunc(x)" 
+plot "Out_err.txt" using 1:2 with lines title "error function",\
+"tabval.txt" using 1:2 with points pointtype 1 title "tabe value"
+
+set title "Gamma Function"
+set xlabel "x"
+set ylabel "gmfunc(x)"
+plot "Out_gm.txt" using 1:3 with lines title "sterling approx",\
+"Out_gm.txt" using 1:2 with points pointtype 1 title "x!"
+
+set title "Ln Gamma Function"
+set ylabel "ln(gmfunc(x))"
+set xlabel "x"
+plot "Out_gm.txt" using 1:5 with lines title "ln gamma func",\
+"Out_gm.txt" using 1:4 with points pointtype 1 title "ln(x!)"  
