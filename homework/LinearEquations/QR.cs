@@ -22,16 +22,12 @@ public static class QR{
 		int m = Q.size2;
 		//calculate vector v=Q^Tb
 		vector c = Q.transpose()*b;
-		Write("Q=");Q.print();
-		Write("Q^T=");Q.transpose().print();
-		Write("b=");b.print();
-		Write("Q^T*b=");c.print();
 		//solve Rx = v by backsubstitution since R is right/upper triangular
 		vector x = new vector(m);
 		for(int i=m-1; i>=0; i--){
-			double sum = 0;
-			for(int k=i+1; k<m; k++){sum+=R[i,k]*x[k];}
-			x[i]=(c[i]-sum)/R[i,i];
+			double sum =c[i];
+			for(int k=i+1; k<m; k++){sum-=R[i,k]*x[k];}
+			x[i]=sum/R[i,i];
 		}
 		return x;
 	}
@@ -42,5 +38,20 @@ public static class QR{
 			prod*=R[i,i];
 		}
 		return prod;
+	}
+	public static matrix inverse(matrix Q, matrix R){
+		int n = Q.size1;
+		int m = Q.size2;
+		if(n!=m){throw new ArgumentException("A must be a (n x n) square matrix");}
+		matrix A_inv = new matrix(n,n);
+		for(int i=0; i<n; i++){
+			vector e = new vector(n);
+			e[i] = 1.0;
+			vector x = solve(Q,R,e);
+			for(int j=0; j<n; j++){
+				A_inv[j,i]=x[j];
+			}
+		}
+		return A_inv;  	
 	}
 }

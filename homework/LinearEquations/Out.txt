@@ -1,45 +1,51 @@
-Creating a vector b size n=2
-adding data to b
-b_1=0.401389848162136
-b_2=0.580140877785227
-b=     0.401       0.58 
-Creating a (n=2 x m=2) matrix A
-adding data to A
-A_0,0 =0.745958738376367
-A_0,1 =0.12559277011342
-A_1,0 =0.934842874265668
-A_1,1 =0.233859863241138
+======TASK A======
+Test Decompostion Function A=QR
+Creating a (n=4 x m=2) matrix A
 A=
-     0.746      0.126 
-     0.935      0.234 
-Decomposition A:
+     0.219      0.705 
+     0.561    0.00756 
+     0.159      0.229 
+     0.145      0.547 
+Decomposition A
 Test right triangular R
 right triangular R=
-       1.2      0.261 
-         0     0.0477 
+      0.64      0.429 
+         0      0.815 
 Test Q^TQ=I
 Q^TQ=I
-         1  -1.44e-15 
- -1.44e-15          1 
+         1  -1.67e-16 
+ -1.67e-16          1 
 Test QR=A
 QR=
-     0.746      0.126 
-     0.935      0.234 
+     0.219      0.705 
+     0.561    0.00756 
+     0.159      0.229 
+     0.145      0.547 
 A=
-     0.746      0.126 
-     0.935      0.234 
+     0.219      0.705 
+     0.561    0.00756 
+     0.159      0.229 
+     0.145      0.547 
+DECOMPOSITION TEST SUCCESSFULL
+
+Test solve function Ax=b
+Creating a random square (4 x 4) matrix A2
+A2=
+     0.538     0.0791      0.578        0.2 
+      0.62      0.321      0.516      0.335 
+     0.224      0.661       0.34       0.58 
+     0.057      0.193      0.648      0.376 
+Creating a random vector b of size 4
+b=    0.0162     0.0063      0.979      0.701 
 Solve Ax=b:
-Q=
-     0.624     -0.782 
-     0.782      0.624 
-Q^T=
-     0.624      0.782 
-    -0.782      0.624 
-b=     0.401       0.58 
-Q^T*b=     0.704     0.0481 
-x=     0.368       1.01 
+x=      3.42      -21.7      -11.1       31.6 
 Test Ax=b
-Ax=     0.401       0.58 
-b=     0.401       0.58 
-Determinant of R
-det|R|=0.057040302340412ALL TESTS COMPELTED SUCCESSFULLY
+Ax=    0.0162     0.0063      0.979      0.701 
+SOLVE TEST SUCCESSFULL
+
+Calculate Determinant of R
+det|R|=0.52184895719991
+=====TASK B======
+calculate A  invers
+Test AA_inv=I
+ALL TESTS COMPELTED SUCCESSFULLY

@@ -2,33 +2,16 @@ using static System.Console;
 using System;
 static class main{
 	static public void Main(){
-		int n;
-		int m;
+		WriteLine("======TASK A======");
+		WriteLine("Test Decompostion Function A=QR");
 		var rnd = new System.Random();
-		n = rnd.Next(2,6);
-		m = rnd.Next(2,n);
+		int n = rnd.Next(2,6);
+		int m = rnd.Next(2,n);
 		if(n<m) throw new Exception("n<m");
-		WriteLine($"Creating a vector b size n={n}");
-		vector b = new vector(n);
-		WriteLine("adding data to b");
-		for(int i=0; i<n; i++){
-			double d = rnd.NextDouble();
-			b[i] = d;
-			WriteLine($"b_{i+1}={d}");
-		}
-		Write("b=");b.print();
 		WriteLine($"Creating a (n={n} x m={m}) matrix A");
-		matrix A = new matrix(n,m); 
-		WriteLine("adding data to A");
-		for(int i=0; i<n; i++){
-			for(int j=0; j<m; j++){
-				double d = rnd.NextDouble();
-				A[i,j] = d;
-				WriteLine($"A_{i},{j} ={d}"); 
-			}
-		}
+		matrix A = randomMatrix(n,m);
 		Write("A=");A.print();	
-		WriteLine("Decomposition A:");
+		WriteLine("Decomposition A");
 		(matrix Q, matrix R) = QR.decomp(A);
 		WriteLine("Test right triangular R");
 		for(int i=0; i<m; i++){
@@ -74,11 +57,24 @@ static class main{
 		}
 		Write("QR=");B.print();
 		Write("A=");A.print();
+		WriteLine("DECOMPOSITION TEST SUCCESSFULL");
+		WriteLine("");
+		WriteLine("Test solve function Ax=b");
+		WriteLine($"Creating a random square ({n} x {n}) matrix A2");
+		matrix A2  = randomMatrix(n,n);
+		Write("A2=");A2.print();
+		WriteLine($"Creating a random vector b of size {n}");
+		vector b = new vector(n);
+		for(int i=0; i<n; i++){
+			b[i]=rnd.NextDouble();
+		}
+		Write("b=");b.print();
 		WriteLine("Solve Ax=b:");
-		vector x = QR.solve(Q,R,b);
+		(matrix Q2, matrix R2) = QR.decomp(A2);
+		vector x = QR.solve(Q2,R2,b);
 		Write("x=");x.print();
 		WriteLine("Test Ax=b");
-		vector c = A*x;
+		vector c = A2*x;
 		for(int i=0; i<n; i++){
 			if(!approx(c[i],b[i])){
 				Write("Ax=");c.print();
@@ -87,10 +83,18 @@ static class main{
 			}
 		}
 		Write("Ax=");c.print();
-		Write("b=");b.print();
-		WriteLine("Determinant of R");
+		WriteLine("SOLVE TEST SUCCESSFULL");
+		WriteLine("");
+		WriteLine("Calculate Determinant of R");
 		double det = QR.det(R);
 		Write($"det|R|={det}");
+		WriteLine("");
+		WriteLine("=====TASK B======");
+		WriteLine("calculate A  invers");
+		matrix A2_inv = QR.inverse(Q2,R2);
+		WriteLine("Test AA_inv=I");
+		matrix Id = matrix.id(n);
+		if(!Id.approx(A2*A2_inv)){throw new Exception("Test failed!");}
 		WriteLine("ALL TESTS COMPELTED SUCCESSFULLY");
 	}
 	public static bool approx(double a,double b){
@@ -102,6 +106,16 @@ static class main{
 		if (abs_ab <= acc) return true;
 		if (abs_ab <= System.Math.Max(abs_a,abs_b)*eps) return true;
 		return false;
+	}
+	public static matrix randomMatrix(int n, int m){
+		var rnd = new System.Random();
+		matrix M = new matrix(n,m);
+		for(int i=0; i<n; i++){
+			for(int j=0; j<m; j++){
+				M[i,j]=rnd.NextDouble();
+			}
+		}
+		return M;
 	}
 
 }
