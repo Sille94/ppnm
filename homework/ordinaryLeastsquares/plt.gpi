@@ -1,0 +1,10 @@
+set terminal svg background "white" size 600,500
+set output "fig.svg"
+set datafile separator ","
+set key top right
+
+set title "Radioactive Decay: ThX"
+set xlabel "Time t(days)"
+set ylabel "Logaitmic Activity of ThX" 
+plot "ln_fit.txt" using 1:2 with lines title "Fit",\
+"ln_data.txt" using 1:2:3 with yerrorbars title "Logaritmic Data Points"

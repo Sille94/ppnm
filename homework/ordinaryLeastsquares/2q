@@ -1,0 +1,25 @@
+using static System.Math;
+using static System.Console;
+using System;
+
+public static class leastSquares{
+	public static vector lsfit(Func<double,double[]> fs, vector x, vector y, vector dy){
+		//Determine the size of the system
+		var vals = fs(x[0]);
+		int m =vals.Length;//m = number of therms in fitting function
+		int n = y.size;//n = the number of data points
+		matrix A = new matrix(n,m);//creating the (n x m) matrix
+		vals = new List<double>(); 
+		for(int i=0; i<n; i++){
+			foreach(f in fs(x[i]))vals.add(f);
+			vals.add(dy[i]);
+			for(int j=0; j<m; j++)A[i,j]=vals[j];
+		}
+		//Solve with uncertainties
+		vector yunc = new vector(n);
+		for(int i=0; i<n; i++){yunc[i]=y[i]+dy[i];}
+		(matrix Q, matrix R) = QR.decomp(A);
+		vector c = QR.solve(Q,R,yunc);
+		return c;
+	}
+}
