@@ -6,5 +6,5 @@ set key top right
 set title "Radioactive Decay: ThX"
 set xlabel "Time t(days)"
 set ylabel "Logaitmic Activity of ThX" 
-plot "ln_fit.txt" using 1:2 with lines title "Fit",\
-"ln_data.txt" using 1:2:3 with yerrorbars title "Logaritmic Data Points"
+plot "fit.txt" using 1:2 with lines title "Fit",\
+"data.txt" using 1:2:3 with yerrorbars title "Logaritmic Data Points"

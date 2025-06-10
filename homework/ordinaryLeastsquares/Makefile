@@ -1,5 +1,5 @@
 out.txt: main.exe 
-	mono main.exe
+	mono main.exe > out.txt
 
 main.exe: leastsq.dll QR.dll matrix.dll vector.dll main.cs
 	mcs -target:exe -out:main.exe -reference:leastsq.dll,QR.dll,matrix.dll,vector.dll main.cs

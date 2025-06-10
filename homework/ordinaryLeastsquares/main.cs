@@ -25,11 +25,9 @@ static class main{
 			lndy[i]=templndy;//ln(1+dy/y) values	
 			outstrm1.WriteLine($"{ts[i]},{templny},{templndy}");
 		}
-		vector c= leastSquares.lsfit(fs,ts,lny,lndy);
-		c.print();
+		vector c= leastSquares.lsfit2(fs,ts,lny,lndy);
 		double lna = c[0];
 		double lambda = c[1];
-		double uncert = c[2];
 		Func<double, double>fit = x=> lna-x*lambda;
 		int steps = 100;
 		double step =ts.Max()/steps+2/steps;
@@ -41,7 +39,10 @@ static class main{
 		outstrm2.Close();
 		outstrm3.Close();
 		outstrm4.Close();
-}
+		double hlife = Log(2)/lambda;
+		WriteLine($"ln(a)={lna}, lambda={lambda}, T_1/2={hlife}");
+		WriteLine($"modern value T_1/2 =3.63");
+	}
 	static public void testQR(){
 		WriteLine("=====Preparation=====");
 		var rnd = new System.Random();
