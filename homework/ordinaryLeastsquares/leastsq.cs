@@ -19,7 +19,7 @@ public static class leastSquares{
 		vector c = QR.solve(Q,R,b);
 		return c;
 	}
-	public static vector lsfit2(Func<double,double[]> fs, vector x, vector y, vector dy){
+	public static (vector, matrix) lsfit2(Func<double,double[]> fs, vector x, vector y, vector dy){
 		//Determine the size of the system
 		var vals = fs(x[0]);
 		int m =vals.Length;//m = number of therms in fitting function
@@ -36,6 +36,10 @@ public static class leastSquares{
 		for(int i=0; i<n; i++){yunc[i]=y[i]+dy[i];}
 		(matrix Q, matrix R) = QR.decomp(A);
 		vector c = QR.solve(Q,R,yunc);
-		return c;
+		//sig = R^-1*R^-1T. optain inverse of R by decomposition R
+		(matrix qR, matrix rR) = QR.decomp(R);
+		matrix Rinv = QR.inverse(qR,rR);
+		matrix sig = Rinv*Rinv.transpose();
+		return (c,sig);
 	}
 }

@@ -41,8 +41,8 @@ static class main{
 		outstrm4.Close();
 		double hlife = Log(2)/lambda;
 		double hlifeerr = sig[1,1]/lambda;
-		WriteLine($"ln(a)={Round(lna,1)}+/-{Round(sig[0,0],1)}, lambda={Round(lambda,2)} +/- {Round(sig[1,1],2)}, T_1/2={Round(hlife,1)}+/-{Round(hlifeerr,1)}");
-		WriteLine($"modern value T_1/2 =3.63 does not lie within the uncertainty of the found value");
+		WriteLine($"ln(a)={Round(lna,2)}+/-{Round(sig[0,0],2)}, lambda={lambda} +/- {sig[1,1]}, T_1/2={hlife}+/-{hlifeerr}");
+		WriteLine($"modern value T_1/2 =3.63");
 	}
 	static public void testQR(){
 		WriteLine("=====Preparation=====");

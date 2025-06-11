@@ -1,3 +1,2 @@
-least
-m=2
-ln(a)=4.98328061152865, lambda=0.162669969458243, T_1/2=4.26106418331795
+ln(a)=5+/-0.7, lambda=0.16 +/- 0.05, T_1/2=4.3+/-0.3
+modern value T_1/2 =3.63 does not lie within the uncertainty of the found value
