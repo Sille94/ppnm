@@ -1,0 +1,19 @@
+set terminal svg background "white" size 1000,1000
+set output "fig.svg"
+set multiplot layout 2,1
+set datafile separator ","
+set key top right
+
+set title "Error Function"
+set xlabel "x"
+set ylabel "errfunc(x)" 
+plot "erf_data.txt" using 1:2 with lines title "error function",\
+"tabval.txt" using 1:2 with points pointtype 1 title "table value"
+
+set title "Error Function, accuracy"
+set ylabel "erf(1) with acc"
+set xlabel "acc"
+set logscale xz
+
+plot "erf_eps.txt" using 1:2 with points pointtype 1 title "|erf(1)-erf(1,acc)|",\
+
