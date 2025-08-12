@@ -6,6 +6,6 @@ set key top right
 set title "Unit Circle Error"
 set xlabel "N"
 set ylabel "Error"
-plot "out.txt" using 1:2 with points pointtype 1 title "estimated error",\
-"out.txt" using 1:3 with points pointtype 2 title "absolute error",\
-"out.txt" using 1:4 with lines title "1/sqrt(N)"
+plot "unitcircle.txt" using 1:2 with points pointtype 1 title "estimated error",\
+"unitcircle.txt" using 1:3 with points pointtype 2 title "absolute error",\
+"unitcircle.txt" using 1:4 with lines title "1/sqrt(N)"
