@@ -1,0 +1,17 @@
+test one-dimentional eqation x/3+2=0
+result x = -6.00000041723254
+f(x)=0
+
+test two-dimentional equation x/3+2=0,x+2*y=0
+result x = -6.00000041723254, y=3.00000020861627
+f(x,y)=0,0
+
+Rosenbrock's valley function
+Gradient: d/dx = 400x^3-400xy-2x, d/dy = 200y-200x^2
+roots =-9.62799190562134E-05,-6.55655914906164E-06
+rv(x,y)=0.000192306975119647,-0.00131316579437502
+
+Himmelblau's function
+Gradient: d/dx =4x^3+4xy-42x+2y^2-14, d/dy = 2x^2+4xy+4y^3-26y-22
+roots = -0.12795864870432,-1.95373228080464
+hb(x,y)=1.01853941156804E-05,-0.0003562384011353
