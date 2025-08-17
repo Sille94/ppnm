@@ -1,0 +1,10 @@
+set terminal svg background "white" size 600,500
+set output "fig.svg"
+set datafile separator ","
+set key top right
+
+set title "Training a Neural Network"
+set xlabel "x"
+set ylabel "y"
+plot "data.txt" using 1:2 with points pointtype 1 title "Data used for interpolation",\
+"ann_data.txt" using 1:2 with points pointtype 2 title "data generated from trained nn"
