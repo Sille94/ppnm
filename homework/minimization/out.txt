@@ -1,7 +1,7 @@
 Rosenbrock's valley function
-minimum found at rv(1.00001285935272,1.00002560157072)=1.66738883128431E-10
+minimum found at rv(1.00001285935272,1.00002560157072), expected at (1,1)
 with 419 iterations
 
 Himmelblau's function
-minimum found at hb(2.99999414248077,2.00002499091702)=8.9591918435503E-09
+minimum found at hb(2.99999414248077,2.00002499091702), expectet at (3,2), (-2.8,3.13), (-3.78,-3.28) or (3.58,-1.85)
 with 11 iterations

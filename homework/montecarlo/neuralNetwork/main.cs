@@ -4,33 +4,30 @@ using static System.Math;
 
 public static class main{
 	public static void Main(){
-	//Part A
-	WriteLine("I can not get ann to work, I have no clue what the problem is");
 	var outstrm1 = new System.IO.StreamWriter("data.txt");
 	var outstrm2 = new System.IO.StreamWriter("ann_data.txt");
-	
 	Func<double,double> f = x => Cos(5*x-1)*Exp(-x*x);//function used to create training data
 	int np = 100;//number of data points
-	//creating data
 	vector xs = new vector(np); vector ys = new vector(np);
-	double a = -1; double b = 1;
+	var rnd = new Random();
 	for(int i=0; i<np; i++){
-		double x = a+(b-a)*i/(np-1);
-		double y = f(x);
-		xs[i]=x;
-		ys[i]=y;
-		outstrm1.WriteLine($"{x},{y}");
+		double xi;
+		if(rnd.Next(0,2)==1){xi = rnd.NextDouble();}
+		else{xi = -rnd.NextDouble();}
+		double yi = f(xi);
+		xs[i]=xi;
+		ys[i]=yi;
+		outstrm1.WriteLine($"{xi},{yi}");
 		}
-	outstrm1.Close();
-
-	//training ann	
-	ann nn = new ann(3);
+	outstrm1.Close();	
+	ann nn = new ann(6);
 	Write("initial params=");
 	nn.p.print();	
 	nn.train(xs,ys);
+	vector param = nn.p;
 	Write("found params=");
-	nn.p.print();
-	for(int i=0; i<xs.size; i++) outstrm2.WriteLine($"{xs[i]},{nn.response(xs[i])}");
+	param.print();
+	for(int i=0; i<np; i++) outstrm2.WriteLine($"{xs[i]},{nn.response(xs[i])}");
 	outstrm2.Close();
 	}
 	
