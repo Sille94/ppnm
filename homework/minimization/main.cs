@@ -55,7 +55,7 @@ public static class main{
 				}
 			return sum;
 			};
-		double m_guess = 125.9;
+		double m_guess = 125;
 		double g_guess = 7;
 		double A_guess = 60;
 		vector init = new vector(m_guess,g_guess,A_guess);

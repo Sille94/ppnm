@@ -6,7 +6,7 @@ public static class mini{
 	public static (vector,int) newton(Func<vector,double> f, vector x, double acc=1e-3){
 		int i=0;
 		do{
-			if(i>1000){WriteLine("Max iterations reached"); break;}
+			if(i>1001){WriteLine("Max iterations reached"); break;}
 			vector gf = gradient(f,x);
 			if(gf.norm() < acc) break;
 			matrix H = hessian(f,x);

@@ -5,7 +5,6 @@ using static System.Math;
 public static class main{
 	public static void Main(){
 	//Part A
-	WriteLine("I can not get ann to work, I have no clue what the problem is");
 	var outstrm1 = new System.IO.StreamWriter("data.txt");
 	var outstrm2 = new System.IO.StreamWriter("ann_data.txt");
 	
@@ -24,7 +23,7 @@ public static class main{
 	outstrm1.Close();
 
 	//training ann	
-	ann nn = new ann(3);
+	ann nn = new ann(5);
 	Write("initial params=");
 	nn.p.print();	
 	nn.train(xs,ys);

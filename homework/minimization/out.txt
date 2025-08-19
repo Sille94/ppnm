@@ -7,6 +7,6 @@ Himmelblau's function
 minimum found at hb(2.99999414248077,2.00002499091702), expectet at (3,2), (-2.8,3.13), (-3.78,-3.28) or (3.58,-1.85)
 with 11 iterations
 Part B
-Minimizing with initial guess m=125.9, Gamma=7, A=60
+Minimizing with initial guess m=125, Gamma=7, A=60
 Max iterations reached
-Found with 1001 itarations, parameters for Higgs are m=125.835356092667, Gamma = 10.7049288490465, A=102.525916176939
+Found with 1002 itarations, parameters for Higgs are m=124.772827051085, Gamma = 10.4022149983533, A=98.5232638890211
