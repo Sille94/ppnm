@@ -1,7 +1,12 @@
+Part A
 Rosenbrock's valley function
-minimum found at rv(1.00001285935272,1.00002560157072), expected at (1,1)
-with 419 iterations
+minimum found at rv(1.00006607934951,1.00013145005126), expected at (1,1)
+with 447 iterations
 
 Himmelblau's function
 minimum found at hb(2.99999414248077,2.00002499091702), expectet at (3,2), (-2.8,3.13), (-3.78,-3.28) or (3.58,-1.85)
 with 11 iterations
+Part B
+Minimizing with initial guess m=125.9, Gamma=7, A=60
+Max iterations reached
+Found with 1001 itarations, parameters for Higgs are m=125.835356092667, Gamma = 10.7049288490465, A=102.525916176939

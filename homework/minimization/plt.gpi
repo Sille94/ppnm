@@ -1,0 +1,10 @@
+set terminal svg background "white" size 600,500
+set output "Higgs_fit.svg"
+set datafile separator ","
+set key top right
+
+set title "Higgs fit"
+set xlabel "Energy [GeV]"
+set ylabel "Signal"
+plot "higgs_data.txt" using 1:2:3 with yerrorbars title "Experimental Data",\
+"higgs_fit.txt" using 1:2 with lines title "fit"
