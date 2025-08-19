@@ -1,0 +1,29 @@
+set terminal svg background "white" size 500,500
+set output "CircularOrbit.svg"
+set datafile separator ","
+set key top right
+
+set title "Newtonian Circular orbit"
+set xlabel "x"
+set ylabel "y"
+plot "newtCirc.txt" using 1:2 with lines 
+
+set terminal svg background "white" size 500,500
+set output "EllipticalOrbit.svg"
+set datafile separator ","
+set key top right
+
+set title "Newtonian Elliptical Orbit"
+set xlabel "x"
+set ylabel "y"
+plot "newtEllip.txt" using 1:2 with lines 
+
+set terminal svg background "white" size 500,500
+set output "RelativisticOrbit.svg"
+set datafile separator","
+set key top right
+
+set title "Relativistic Orbit"
+set xlabel "x"
+set ylabel "y"
+plot "relOrb.txt" using 1:2 with lines

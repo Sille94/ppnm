@@ -1,0 +1,10 @@
+set terminal svg background "white" size 600,500
+set output "PartA.svg"
+set datafile separator ","
+set key top right
+
+set title "Solving systems with ODE routine"
+set xlabel "x"
+set ylabel "y"
+plot "SHO.txt" using 1:2 with lines title "Simple Harmonic Oscillator",\
+"Damped.txt" using 1:2 with lines title "Damped oscilation"
