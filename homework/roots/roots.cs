@@ -2,7 +2,7 @@ using static System.Console;
 using static System.Math;
 using System;
 public static class roots{
-	public static vector newton(Func<vector,vector> f,vector start,double tol, double acc=1e-2, vector dx=null){
+	public static vector newton(Func<vector,vector> f,vector start, double acc=1e-2, vector dx=null){
 		vector x=start.copy();
 		vector fx=f(x),z,fz;
 		int i =1;
@@ -12,12 +12,12 @@ public static class roots{
 			matrix J=jacobian(f,x,fx,dx);
 			(matrix QJ,matrix RJ) = QR.decomp(J);
 			vector Dx = QR.solve(QJ,RJ,-fx);
-			double lambda = 1;
+			double lambda = 1.0;
 			do{
 				z=x+lambda*Dx;
 				fz=f(z);
 				if(fz.norm() < (1-lambda/2)*fx.norm()) break;
-				if(lambda < tol) break;
+				if(lambda < 1.0/1024) break;
 				lambda/=2;
 				}while(true);
 			i++;

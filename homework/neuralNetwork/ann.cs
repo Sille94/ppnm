@@ -5,6 +5,9 @@ using static System.Math;
 public class ann{
 	public int n; //hidden neurons
 	public Func<double,double> f = x=> x*Exp(-x*x);//activation function gaussian wavelet, can be changed
+	public Func<double,double> df = x => (1-2*x*x)*Exp(-x*x)//first deriviative of activation function
+	public Func<double,double> d2f = x =>2*x*(2*x*x-3)*Exp(-x*x) //secon deriviative of activation function
+	public Func<double,double> antif = x =>-Exp(-x*x)/2 //anti-deriviative of activation function
 	public vector p;//network parameters 3 params for each neuron i.e. p = {a_1,b_1,w_1,a_2,...,w_n} 
 	public ann(int n){//constructor creates p vector, with random initial guess
 		p = new vector(n*3);
@@ -16,7 +19,7 @@ public class ann{
 			p[i+2]=2*rnd.NextDouble()-1;//w
 			}
 		}
-	//Part A - Not Working for some reason
+
 	public double response(double x){//calculates the response of the network to the input signal
 		double F = 0; 
 		for(int i=0; i<n; i++){
@@ -25,7 +28,21 @@ public class ann{
 			}
 		return F;
 		}
-	
+	public double deriviative(double x){
+		double dF = 0;
+		for(int i=0; i<n; i++){dF+=p[3*i+2]*df((x-p[3*i])/p[3*i+1]);}
+		return dF;
+		}
+	public double secon_deriviative(double x){
+		double d2F = 0;
+		for(int i=0; i<n; i++){d2F+=p[3*i+2]*d2f((x-p[3*i])/p[3*i+1];}
+		return d2F;
+		}
+	public double antideriviative(double x){
+		double antiF = 0;
+		for(int i=0; i<n; i++){antiF+=p[3*i+2]*antf((x-p[3*i+1)/p[3*i+1]);}
+		return intiF;
+		}
 	public void train(vector x, vector y){//training network to interpolate table (supervised training). x input, y desired output
 		Func<vector, double> Cp = param =>{//cost function
 			double sum=0;

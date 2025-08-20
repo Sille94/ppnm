@@ -1,5 +1,6 @@
 out.txt: main.exe
 	mono main.exe > out.txt
+	cat out.txt
 
 main.exe: roots.dll vector.dll main.cs
 	mcs -target:exe -reference:vector.dll,roots.dll main.cs
