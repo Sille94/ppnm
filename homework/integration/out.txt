@@ -1,16 +1,31 @@
-val1=0.667
-2/3=0.667
-val2=2
-2
-val3=0.786
-Pi/4=0.785
-val4=-4
--4
-0.842700792949715
-0.842510367644053,0.000190425305661601
-0.842700792949715
-0.842510367644053,0.000190425305661601
-0.842700792949715
-0.842729958487199,2.91655374837774E-05
-0.842700792949715
-0.842701222507406,4.29557691195015E-07
+Part A
+Debug using some functions
+
+func1=0.666953909054655
+expected: 2/3=0.666666666666667
+no of iterations: 7
+
+func2=1.99996150007805
+expected: 2
+no of interations: 4285
+
+func3=0.785812493721639
+expected: Pi/4=0.785398163397448
+no of interations: 7
+
+func4=-3.99991705899915
+expected: -4
+no of iterations: 4301
+
+Error Function can be viewed in errorFunc.svg
+
+Part B
+
+1/Sqrt(x):
+Integration with Clenshaw-Curtis yielded 1.99999201046432 (expected 2) with 7 iterations - compared to 4285 iterations with the original integration routine
+
+Log(x)/Sqrt(x):
+Integration with Clenshaw-Curtis yielded -3.9998738564614 (expected -4) with 47 iterations - compared to 4301 iterations with the original integration routine
+
+testing a converging infinite limit integral: Sin(x)/x from 0 to -inf 
+Expected value pI/2 = 1.5707963267949 - Integratio yielded 2.222439420645E+16, with 595 iterations

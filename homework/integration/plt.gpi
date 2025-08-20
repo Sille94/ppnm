@@ -1,5 +1,5 @@
 set terminal svg background "white" size 1000,1000
-set output "fig.svg"
+set output "errorFunc.svg"
 set multiplot layout 2,1
 set datafile separator ","
 set key top right
