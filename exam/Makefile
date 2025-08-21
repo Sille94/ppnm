@@ -1,5 +1,6 @@
 outB.txt: mainB.exe 
 	mono mainB.exe > outB.txt
+	gnuplot plt.gpi
 	cat outB.txt
 
 

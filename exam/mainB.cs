@@ -4,15 +4,19 @@ using static System.Math;
 static class main{
 	static public void Main(){
 		WriteLine("Part B");
-		vector v =new vector("0.02,0.1,0.38");
-		Write("alph_init=");v.print();
-		(matrix H, matrix N) = hydrogen.HN(v);
-		H.print();
-		N.print();
-		(vector alph_opt, matrix E, matrix C) = hydrogen.system_solve(v);
-		Write("alph_opt=");alph_opt.print();
-		Write("E=");E.print();
-		Write("C=");C.print();
+		var outstrm = new System.IO.StreamWriter("hydrogen_data.txt");
+		var rnd = new Random();
+		for(int N=1; N<7; N++){
+			vector v = new vector(N);
+			for(int i=0; i<N; i++){
+				v[i]=rnd.NextDouble();
+				}
+			(vector alpha, matrix E, matrix C) = hydrogen.system_solve(v);
+			double E0 = 0;
+			for(int i=0; i<E.size1; i++){if(E0 > E[i,i])E0=E[i,i];}
+			outstrm.WriteLine($"{N},{E0}");
+			}
+		outstrm.Close();
 		}
 }
 

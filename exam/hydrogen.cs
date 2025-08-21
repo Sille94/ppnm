@@ -16,7 +16,7 @@ public static class hydrogen{
 					}
 				else{
 					double b = alpha[j];	
-					H[i,j]=3.0/2.0*Sqrt(PI)*a*b*Pow((a+b),-5.0/2.0)-1.0/(2.0*(a+b));
+					H[i,j]=-3.0/2.0*Sqrt(PI)*a*b*Pow((a+b),-5.0/2.0)+1.0/(2.0*(a+b));
 					H[j,i]=H[i,j];
 					N[i,j]=1.0/4.0*Sqrt(PI)*Pow((a+b),-3.0/2.0);
 					N[j,i]=N[i,j];
@@ -30,7 +30,11 @@ public static class hydrogen{
 			(matrix H, matrix N) = HN(a);
 			gev HNsystem = new gev(H,N);
 			(matrix E, matrix C) = HNsystem.cholesky_solver();
-			return E[0,0];};//gound state energy
+			double E0=E[0,0];
+			for(int i =0; i<E.size1; i++){
+				if(E0 > E[i,i]) E0=E[i,i];
+				}
+			return E0;}; //ground state energy
 		(vector opt_a, int count) = mini.newton(eigen,alpha);
 		return opt_a;
 		}

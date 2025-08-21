@@ -1,0 +1,9 @@
+set terminal svg background "white" size 1000,500
+set output "hydrogen_groundsta.svg"
+set datafile separator ","
+set key top right
+
+set title "Convergence of Ground State Energy"
+set xlabel "N"
+set ylabel "E"
+plot "hydrogen_data.txt" using 1:2 with points pointtype 1 
