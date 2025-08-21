@@ -1,2 +1,10 @@
-val = 1.38558121250893 +/- 0.0141778184621717
-1.3932039296856768591842462603255
+Part A+B
+Error as function of sampling points can be viewed in plainError.svg
+Area of unitcircle with plainmc yielded: 3.140882487748 +/- 0.00282461602937377
+Area of unitcircle with quasimc yielded: 3.1415838568245 +/- 0.00199632858233472
+Expected: PI=3.14159265358979
+Area of unitcircle calculated with plain-and quasi mc can be viewed in quasi.svg
+
+solving the Interal from course page
+Integration with plainmc yielded: 1.38344877795911 +/- 0.0168711722116543
+expected val: 1.3932039296856768591842462603255
