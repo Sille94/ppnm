@@ -16,7 +16,7 @@ public static class hydrogen{
 					}
 				else{
 					double b = alpha[j];	
-					H[i,j]=+3.0/2.0*Sqrt(PI)*a*b*Pow((a+b),-5.0/2.0)-1.0/(2.0*(a+b));
+					H[i,j]=3.0/2.0*Sqrt(PI)*a*b*Pow((a+b),-5.0/2.0)-1.0/(2.0*(a+b));
 					H[j,i]=H[i,j];
 					N[i,j]=1.0/4.0*Sqrt(PI)*Pow((a+b),-3.0/2.0);
 					N[j,i]=N[i,j];

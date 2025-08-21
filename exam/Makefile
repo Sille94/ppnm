@@ -2,6 +2,7 @@ outB.txt: mainB.exe
 	mono mainB.exe > outB.txt
 	gnuplot plt.gpi
 	cat outB.txt
+	cat hydrogen_data.txt
 
 
 
@@ -28,5 +29,5 @@ matrix.dll: vector.dll matrix.cs
 vector.dll: vector.cs
 	mcs -target:library -out:vector.dll vector.cs
 clean:
-	rm -f outC.txt
+	rm -f outB.txt
 

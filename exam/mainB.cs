@@ -12,6 +12,7 @@ static class main{
 				v[i]=rnd.NextDouble();
 				}
 			(vector alpha, matrix E, matrix C) = hydrogen.system_solve(v);
+			Write($"matrix E_{N}=");E.print();
 			double E0 = 0;
 			for(int i=0; i<E.size1; i++){if(E0 > E[i,i])E0=E[i,i];}
 			outstrm.WriteLine($"{N},{E0}");
