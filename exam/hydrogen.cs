@@ -11,12 +11,12 @@ public static class hydrogen{
 			for(int j=i; j<n; j++){
 				double a = alpha[i];
 				if(i==j){
-					H[i,i]=-3.0/2.0*Sqrt(PI)*Pow(a,2)*Pow(2.0*a,-5.0/2.0)+1.0/(4.0*a);
+					H[i,i]=3.0/2.0*Sqrt(PI)*Pow(a,2)*Pow(2.0*a,-5.0/2.0)-1.0/(4.0*a);
 					N[i,i]=1.0/4.0*Sqrt(PI)*Pow(2*a,-3.0/2.0);
 					}
 				else{
 					double b = alpha[j];	
-					H[i,j]=-3.0/2.0*Sqrt(PI)*a*b*Pow((a+b),-5.0/2.0)+1.0/(2.0*(a+b));
+					H[i,j]=+3.0/2.0*Sqrt(PI)*a*b*Pow((a+b),-5.0/2.0)-1.0/(2.0*(a+b));
 					H[j,i]=H[i,j];
 					N[i,j]=1.0/4.0*Sqrt(PI)*Pow((a+b),-3.0/2.0);
 					N[j,i]=N[i,j];
