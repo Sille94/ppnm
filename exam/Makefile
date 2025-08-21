@@ -1,10 +1,10 @@
-outB.txt: mainB.exe 
-	mono mainB.exe > outB.txt
-	gnuplot plt.gpi
-	cat outB.txt
-	cat hydrogen_data.txt
+outC.txt: mainC.exe 
+	mono mainC.exe > outC.txt
+	cat outC.txt
 
 
+mainC.exe:GEV.dll matrix.dll vector.dll mainC.cs
+	mcs -target:exe -out:mainC.exe -reference:GEV.dll,matrix.dll,vector.dll mainC.cs
 
 mainB.exe:hydrogen.dll GEV.dll matrix.dll vector.dll mainB.cs
 	mcs -target:exe -out:mainB.exe -reference:hydrogen.dll,GEV.dll,matrix.dll,vector.dll mainB.cs
@@ -29,5 +29,5 @@ matrix.dll: vector.dll matrix.cs
 vector.dll: vector.cs
 	mcs -target:library -out:vector.dll vector.cs
 clean:
-	rm -f outB.txt
+	rm -f outC.txt
 
