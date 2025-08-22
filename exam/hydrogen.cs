@@ -29,7 +29,7 @@ public static class hydrogen{
 		Func<vector, double> eigen = a =>{
 			(matrix H, matrix N) = HN(a);
 			gev HNsystem = new gev(H,N);
-			(matrix E, matrix C) = HNsystem.cholesky_solver();
+			(matrix E, matrix C) = HNsystem.solver();
 			double E0=E[0,0];
 			for(int i =0; i<E.size1; i++){
 				if(E0 > E[i,i]) E0=E[i,i];

@@ -1,6 +1,6 @@
-outC.txt: mainC.exe 
-	mono mainC.exe > outC.txt
-	cat outC.txt
+outB.txt: mainB.exe 
+	mono mainB.exe > outB.txt
+	cat outB.txt
 
 
 mainC.exe:GEV.dll matrix.dll vector.dll mainC.cs
