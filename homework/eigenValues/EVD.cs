@@ -11,7 +11,7 @@ public static class jacobi{
 	}
 	public static void Jtimes(matrix A, int p, int q, double theta){
 		double c=Cos(theta), s=Sin(theta);
-		for(int j=0; j<A.size1; j++){//iterate through all pj and qj elements
+		for(int j=0; j<A.size2; j++){//iterate through all pj and qj elements
 			double apj=A[p,j], aqj=A[q,j];
 			A[p,j]=c*apj+s*aqj;//uptaing all pj and qj elements of A
 			A[q,j]=-s*apj+c*aqj;
