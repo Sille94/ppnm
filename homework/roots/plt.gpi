@@ -1,0 +1,10 @@
+set terminal svg background "white" size 1000,500
+set output "wavefunctions.svg"
+set datafile separator ","
+set key top right
+
+set title "Wavefunctions of Hydrogen"
+set xlabel "r"
+set ylabel "f(r)"
+plot "wavefunct.txt" using 1:2 with lines title "Found with Routine",\
+"wavefunct.txt" using 1:3 with lines title "Exact solution "

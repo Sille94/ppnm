@@ -55,16 +55,37 @@ static class main{
 		vector w0 = new vector(rmin-rmin*rmin,1-2*rmin);
 		
 		Func<double, double> M = E =>{
-			(genlist<double> rs,genlist<vector> es) = ode.driver(w(E),(rmin,rmax),w0);
-			vector Es= es[es.size-1];
-			double e0 = Es[0];
+			(genlist<double> rs,genlist<vector> fr) = ode.driver(w(E),(rmin,rmax),w0);
+			vector es= fr[rs.size-1];
+			double e0 = es[0];
 			return e0;
 			};
 		
-		double E0 = roots.bisec(M,-1,-1,1e-6);
-		WriteLine($"E0={E0}"); 		
+		double E0 = roots.bisec(M,-1.0,-0.1,1e-6);
+		WriteLine($"Shooting method ground state energy E0={E0}"); 
+		WriteLine($"Expected: -0.5");
+		WriteLine($"Plot of wavefunction can be viewed in wavefunction.svg");
+
+		var outstrm = new System.IO.StreamWriter("wavefunct.txt");
+		Func<double, vector, vector> wE = w(E0);//radial wavefunctions found with routine
+		Func<double, double> f = r =>r*Exp(-r);//excact
+		(genlist<double> Rs,  genlist<double> fs) = w_r(wE,(rmin,rmax),w0);
+		for(int i=0; i<Rs.size; i++){
+			outstrm.WriteLine($"{Rs[i]},{fs[i]},{f(Rs[i])}");
+			}	
+		outstrm.Close();
+
+			
+			}
 		}
-	
+
+		public static (genlist<double>,genlist<double>) w_r(Func<double,vector,vector> we,(double,double)range,vector w0){
+			(genlist<double> rs,genlist<vector>frs) =ode.driver(we,range,w0);
+			genlist<double> fr = new genlist<double>();
+			for(int i=0; i<rs.size;i++){fr.add(frs[i][0]);}
+			return (rs,fr);
+			}	
+		
 		public static Func<double, vector, vector> w(double E) => (r,f) =>{	
 			double df = f[1];
 			double d2f = -2*(E+1/r)*f[0];

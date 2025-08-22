@@ -40,11 +40,11 @@ public static class roots{
 	public static double bisec(Func<double,double> f, double x, double y, double tol){
 		double fx=f(x),fy=f(y);
 		if(fx*fy > 0) throw new Exception("Not backtracked");
-		while(y-x<tol){	
+		while(y-x>tol){	
 			double xy = (x+y)/2;
 			double fxy = f(xy);
 			if(fx*fxy < 0){	y=xy;fy = fxy;}
-			else{x=xy;fy=fxy;}
+			else{x=xy;fx=fxy;}
 			}
 		return(x+y)/2;	
 		}
