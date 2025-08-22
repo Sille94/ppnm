@@ -49,5 +49,26 @@ static class main{
 		WriteLine($"Norm f(x,y)={hb(x_hb).norm()}");
 		WriteLine("");
 		WriteLine("Part B");
+		
+		double rmin = 1e-5;
+		double rmax =  8;
+		vector w0 = new vector(rmin-rmin*rmin,1-2*rmin);
+		
+		Func<double, double> M = E =>{
+			(genlist<double> rs,genlist<vector> es) = ode.driver(w(E),(rmin,rmax),w0);
+			vector Es= es[es.size-1];
+			double e0 = Es[0];
+			return e0;
+			};
+		
+		double E0 = roots.bisec(M,-1,-1,1e-6);
+		WriteLine($"E0={E0}"); 		
 		}
+	
+		public static Func<double, vector, vector> w(double E) => (r,f) =>{	
+			double df = f[1];
+			double d2f = -2*(E+1/r)*f[0];
+			return new vector(df,d2f); 
+			};
 }
+

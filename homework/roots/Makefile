@@ -2,8 +2,8 @@ out.txt: main.exe
 	mono main.exe > out.txt
 	cat out.txt
 
-main.exe: roots.dll vector.dll main.cs
-	mcs -target:exe -reference:vector.dll,roots.dll main.cs
+main.exe:ode.dll genlist.dll roots.dll vector.dll main.cs
+	mcs -target:exe -reference:ode.dll,genlist.dll,vector.dll,roots.dll main.cs
 
 roots.dll: matrix.dll QR.dll vector.dll roots.cs
 	mcs -target:library -reference:vector.dll,QR.dll,matrix.dll roots.cs

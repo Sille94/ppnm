@@ -1,0 +1,32 @@
+set terminal svg background "white" size 1000,500
+set output "convergens_dr.svg"
+set datafile separator ","
+set key top right
+
+set title "Convegence of Ground state Energy /w dr"
+set xlabel "dr"
+set ylabel "Energy"
+plot "converg_dr.txt" using 1:2 with lines 
+
+
+set terminal svg background "white" size 1000,500
+set output "convergens_rmax.svg"
+set datafile separator ","
+set key top right
+
+set title "Convegence of Ground state Energy /w rmax"
+set xlabel "rmax"
+set ylabel "Energy"
+plot "converg_rmax.txt" using 1:2 with lines 
+
+set terminal svg background "white" size 1000,500
+set output "wavefunctions.svg"
+set datafile separator ","
+set key top right
+
+set title "Wavefunctions of Hydrogen"
+set xlabel "r"
+set ylabel "u(r)"
+plot "wavefunctions.txt" using 1:2 with lines title "Ground State",\
+"wavefunctions.txt" using 1:3 with lines title "First Excited State",\
+"wavefunctions.txt" using 1:4 with lines title "Second Excited State"

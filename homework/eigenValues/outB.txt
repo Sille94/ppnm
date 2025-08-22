@@ -1,0 +1,1 @@
+Part B: convergence can be vied in convergence_dr.svg and convergence_rmax.svg
